@@ -1,0 +1,42 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Hi, I'm Adwi.</h1>
+			<p>
+				I build software — systems, side-projects, and the occasional thing worth selling.
+				This is where I keep my work and write about how it's made.
+			</p>
+
+			<h2>What I'm working on</h2>
+			<ul>
+				<li><strong>Kesatria Keyboard</strong> — a mechanical-keyboard blog &amp; community. (migrating here)</li>
+				<li><strong>Products &amp; experiments</strong> — coming soon. Building in the open.</li>
+			</ul>
+
+			<h2>Elsewhere</h2>
+			<ul>
+				<li><a href="https://github.com/adwiarifin" target="_blank" rel="noopener">GitHub — @adwiarifin</a></li>
+				<li><a href="https://instagram.com/kesatria.dev" target="_blank" rel="noopener">Instagram — @kesatria.dev</a></li>
+				<li><a href="https://instagram.com/kesatriakeyboard" target="_blank" rel="noopener">Instagram — @kesatriakeyboard (keyboards)</a></li>
+				<li><a href="https://facebook.com/kesatriakeyboard" target="_blank" rel="noopener">Facebook — Kesatria Keyboard</a></li>
+			</ul>
+
+			<p>
+				Read the <a href="/blog">blog</a> or find out <a href="/about">more about me</a>.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
