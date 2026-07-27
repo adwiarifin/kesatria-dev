@@ -29,11 +29,11 @@ becomes product section + 301-redirects into `kesatria.dev`.
 - [x] Transfer `kesatriakeyboard.com` in to Cloudflare Registrar.
 - [x] Old DNS entries removed on Cloudflare (clean slate for Pages).
 
-### Phase 2 — deploy Astro site  ◀ IN PROGRESS
-- [ ] Push `kesatria-web` to GitHub.
-- [ ] Cloudflare Pages → connect repo (build `pnpm build`, output `dist`). Static, no adapter.
-- [ ] Add custom domain `kesatria.dev` (+ `www` redirect) in Pages.
-- [ ] Verify HTTPS + build on push.
+### Phase 2 — deploy Astro site  ✅ DONE
+- [x] Push `kesatria-web` to GitHub (`adwiarifin/kesatria-web`, SSH alias `github.com-id`).
+- [x] Cloudflare Pages project `kesatria` connected to repo (build `pnpm build`, output `dist`).
+      Static, no adapter. Auto-deploy on push to `main`.
+- [x] Custom domain `kesatria.dev` activated in Pages. HTTPS live.
 
 ### Phase 3 — migrate content & retire old
 - [ ] Dump old blog MySQL from IDCloudHost **before cancelling** (data lives there).
