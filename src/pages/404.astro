@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<BaseLayout
+	title={`Page not found — ${SITE_TITLE}`}
+	description="That page does not exist."
+>
+	<!-- A 404 is served at arbitrary URLs, so keep it out of the index. -->
+	<meta slot="head" name="robots" content="noindex, follow" />
+	<main>
+		<h1>404</h1>
+		<p>That page does not exist — it may have moved, or the link may be wrong.</p>
+		<p>
+			Head back to the <a href="/">homepage</a>, or browse the
+			<a href="/blog">blog</a>.
+		</p>
+	</main>
+</BaseLayout>

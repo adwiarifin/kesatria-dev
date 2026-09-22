@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kesatria.dev/sitemap-index.xml
