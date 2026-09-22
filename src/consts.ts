@@ -17,6 +17,7 @@ export const AUTHOR_PROFILES = [
 	'https://github.com/adwiarifin',
 	'https://www.linkedin.com/in/adwiarifin',
 	'https://x.com/adwiarifin',
+	'https://www.instagram.com/adwiarifin',
 ];
 
 export const SITE_PROFILES = ['https://www.instagram.com/kesatria.dev'];
