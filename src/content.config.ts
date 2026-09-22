@@ -14,6 +14,9 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
+			// Overrides `heroImage` for social cards when the in-page hero
+			// does not crop well at 1200x630.
+			ogImage: z.optional(image()),
 		}),
 });
 

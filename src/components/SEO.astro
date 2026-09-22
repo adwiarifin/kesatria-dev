@@ -12,6 +12,8 @@ interface Props {
 	image?: ImageMetadata | string;
 	type?: 'website' | 'article';
 	canonical?: string | URL;
+	publishedTime?: Date;
+	modifiedTime?: Date;
 }
 
 const {
@@ -20,6 +22,8 @@ const {
 	image = DEFAULT_OG_IMAGE,
 	type = 'website',
 	canonical,
+	publishedTime,
+	modifiedTime,
 } = Astro.props;
 
 // `Astro.site` is configured in astro.config.mjs and is the authoritative
@@ -43,6 +47,16 @@ const imageURL = new URL(typeof image === 'string' ? image : image.src, siteURL)
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
+{
+	type === 'article' && publishedTime && (
+		<meta property="article:published_time" content={publishedTime.toISOString()} />
+	)
+}
+{
+	type === 'article' && modifiedTime && (
+		<meta property="article:modified_time" content={modifiedTime.toISOString()} />
+	)
+}
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />

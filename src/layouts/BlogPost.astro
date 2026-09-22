@@ -1,91 +1,119 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
+import { AUTHOR_NAME, SITE_URL } from '../consts';
+import BaseLayout from './BaseLayout.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, ogImage } = Astro.props;
+
+// The hero doubles as the social card unless the post supplies a dedicated one.
+const socialImage = ogImage ?? heroImage;
+
+const siteURL = Astro.site ?? new URL(Astro.url.origin);
+const canonicalURL = new URL(Astro.url.pathname, siteURL);
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: title,
+	description: description,
+	datePublished: pubDate.toISOString(),
+	dateModified: (updatedDate ?? pubDate).toISOString(),
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': canonicalURL.href,
+	},
+	author: {
+		'@type': 'Person',
+		name: AUTHOR_NAME,
+		url: SITE_URL,
+	},
+	...(socialImage && { image: new URL(socialImage.src, siteURL).href }),
+};
+
+// `</script>` inside a JSON string would close the tag early, so escape `<`.
+const structuredDataJSON = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead
-			title={title}
-			description={description}
-			image={heroImage}
-			type="article"
-		/>
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
-
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+<BaseLayout
+	title={title}
+	description={description}
+	image={socialImage}
+	type="article"
+	publishedTime={pubDate}
+	modifiedTime={updatedDate ?? pubDate}
+>
+	<script
+		slot="head"
+		type="application/ld+json"
+		set:html={structuredDataJSON}
+		is:inline
+	/>
+	<main>
+		<article>
+			<div class="hero-image">
+				{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+			</div>
+			<div class="prose">
+				<div class="title">
+					<div class="date">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<div class="last-updated-on">
+									Last updated on <FormattedDate date={updatedDate} />
+								</div>
+							)
+						}
 					</div>
-					<slot />
+					<h1>{title}</h1>
+					<hr />
 				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+				<slot />
+			</div>
+		</article>
+	</main>
+</BaseLayout>
+
+<style>
+	main {
+		width: calc(100% - 2em);
+		max-width: 100%;
+		margin: 0;
+	}
+	.hero-image {
+		width: 100%;
+	}
+	.hero-image img {
+		display: block;
+		margin: 0 auto;
+		border-radius: 12px;
+		box-shadow: var(--box-shadow);
+	}
+	.prose {
+		width: 720px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 1em;
+		color: rgb(var(--gray-dark));
+	}
+	.title {
+		margin-bottom: 1em;
+		padding: 1em 0;
+		text-align: center;
+		line-height: 1;
+	}
+	.title h1 {
+		margin: 0 0 0.5em 0;
+	}
+	.date {
+		margin-bottom: 0.5em;
+		color: rgb(var(--gray));
+	}
+	.last-updated-on {
+		font-style: italic;
+	}
+</style>
