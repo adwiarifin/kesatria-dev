@@ -9,3 +9,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    ignore:
+      # TypeScript 7 is the native compiler rewrite and drops the programmatic
+      # API `astro check` needs, so `pnpm check` breaks on it. Stay on 6.x
+      # until @astrojs/check supports it:
+      # https://github.com/withastro/roadmap/discussions/1321
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
