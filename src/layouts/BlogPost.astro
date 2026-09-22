@@ -26,11 +26,15 @@ const structuredData = {
 		'@type': 'WebPage',
 		'@id': canonicalURL.href,
 	},
+	// `@id` ties this back to the Person node in BaseLayout's graph; the
+	// inline name/url keep the block self-describing if read on its own.
 	author: {
 		'@type': 'Person',
+		'@id': `${SITE_URL}/#person`,
 		name: AUTHOR_NAME,
 		url: SITE_URL,
 	},
+	isPartOf: { '@id': `${SITE_URL}/#website` },
 	...(socialImage && { image: new URL(socialImage.src, siteURL).href }),
 };
 
