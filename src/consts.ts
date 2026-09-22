@@ -6,7 +6,33 @@ export const SITE_TITLE = 'kesatria.dev';
 export const SITE_DESCRIPTION = 'Adwi Arifin — builder. Systems, side-projects, and notes on making things.';
 
 export const AUTHOR_NAME = 'Adwi Arifin';
+export const AUTHOR_HANDLE = 'adwiarifin';
 export const AUTHOR_JOB_TITLE = 'Software Engineer';
+export const AUTHOR_DESCRIPTION =
+	'Software engineer building web platforms, software systems, IoT and microcontroller projects, and AI integrations.';
+
+export const AUTHOR_LOCATION = {
+	locality: 'Malang',
+	region: 'East Java',
+	country: 'ID',
+};
+
+// Topics the Person entity is claimed to have knowledge of. Kept tight — a
+// long list dilutes the signal rather than strengthening it.
+export const AUTHOR_EXPERTISE = [
+	'Software architecture',
+	'Web development',
+	'Internet of things',
+	'Embedded systems',
+	'AI integration',
+	'TypeScript',
+	'Node.js',
+	'React',
+	'Astro',
+	'Python',
+	'Docker',
+	'PostgreSQL',
+];
 
 // Profiles used for `sameAs` entity reconciliation in JSON-LD. Each list is
 // scoped to the entity it actually identifies: personal accounts on the

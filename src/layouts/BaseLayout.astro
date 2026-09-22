@@ -5,7 +5,11 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import SEO from '../components/SEO.astro';
 import {
+	AUTHOR_DESCRIPTION,
+	AUTHOR_EXPERTISE,
+	AUTHOR_HANDLE,
 	AUTHOR_JOB_TITLE,
+	AUTHOR_LOCATION,
 	AUTHOR_NAME,
 	AUTHOR_PROFILES,
 	BRAND_NAME,
@@ -45,8 +49,17 @@ const structuredData = {
 			'@type': 'Person',
 			'@id': `${SITE_URL}/#person`,
 			name: AUTHOR_NAME,
+			alternateName: AUTHOR_HANDLE,
 			jobTitle: AUTHOR_JOB_TITLE,
+			description: AUTHOR_DESCRIPTION,
 			url: SITE_URL,
+			address: {
+				'@type': 'PostalAddress',
+				addressLocality: AUTHOR_LOCATION.locality,
+				addressRegion: AUTHOR_LOCATION.region,
+				addressCountry: AUTHOR_LOCATION.country,
+			},
+			knowsAbout: AUTHOR_EXPERTISE,
 			sameAs: AUTHOR_PROFILES,
 		},
 		{
