@@ -1,7 +1,10 @@
 ---
 import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// Served straight from `public/`, so the URL stays stable across builds and
+// social crawlers keep a cacheable target.
+const DEFAULT_OG_IMAGE = '/og-default.png';
 
 interface Props {
 	title?: string;
@@ -14,7 +17,7 @@ interface Props {
 const {
 	title = SITE_TITLE,
 	description = SITE_DESCRIPTION,
-	image = FallbackImage,
+	image = DEFAULT_OG_IMAGE,
 	type = 'website',
 	canonical,
 } = Astro.props;
