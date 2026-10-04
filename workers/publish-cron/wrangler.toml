@@ -1,0 +1,13 @@
+# Rebuilds kesatria.dev daily so posts whose `pubDate` has passed go live
+# without a push. See src/lib/posts.ts for the build-time filter.
+#
+# Deploy: pnpm dlx wrangler@4 deploy
+# Secret: pnpm dlx wrangler@4 secret put DEPLOY_HOOK_URL  (Cloudflare Pages deploy hook for `main`)
+name = "kesatria-publish-cron"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[triggers]
+# Cron is UTC: 12:00 UTC = 19:00 WIB. Must not fire earlier than the publish
+# time, or a post scheduled for 19:00 is filtered out of that build.
+crons = ["0 12 * * *"]
