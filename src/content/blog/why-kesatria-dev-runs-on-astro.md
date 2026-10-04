@@ -39,7 +39,7 @@ Then I remembered that Cloudflare has basically everything: a domain registrar, 
 
 So I moved both domains to Cloudflare and rebuilt the site as a static Astro site on Cloudflare Pages. Kesatria Keyboard, the name I've used online since school (the story is on the [about page](/about)), now lives under kesatria.dev too.
 
-<!-- TODO(adwi): the old blog's database is backed up; worth saying whether the old blog posts will be migrated. -->
+The posts from the old blog aren't coming over as they were. Some of them will come back as ideas for new posts, rewritten with what I know now.
 
 ## Why Astro
 
