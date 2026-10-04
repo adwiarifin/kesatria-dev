@@ -32,11 +32,15 @@ And yes, AI is everywhere now. It helped draft this post, too. But the ideas, th
 
 ## Where it came from
 
-kesatria.dev didn't start from nothing. Before this, there was a Laravel 5 blog for Kesatria Keyboard, my mechanical keyboard project, running on paid shared hosting. It worked, but it was a full PHP application with a database, an admin panel, and an upgrade path that I kept postponing. That's a lot of machinery for something that mostly serves text.
+Honestly, this site started as a cost decision.
 
-So I rewrote it as a static site and moved everything (domains, DNS, hosting) to Cloudflare. The keyboard brand now lives under kesatria.dev too.
+I had two domains with two different providers. kesatriakeyboard.com was with a local provider, and kesatria.dev was registered through Google Domains, which has since moved to Squarespace. Renewals there got expensive. The local provider was hard to maintain. Its domain was often bundled with hosting, but that hosting didn't offer much unless I upgraded to a pricier tier. For a personal hobby, paying more each year for less didn't make sense.
 
-<!-- TODO(adwi): the old blog's database is backed up; worth saying whether the old keyboard posts will be migrated. -->
+Then I remembered that Cloudflare has basically everything: a domain registrar, DNS, and static hosting with a free tier. I looked at the AWS ecosystem as well, but after working through its layers of services, it didn't make the cut for something this small.
+
+So I moved both domains to Cloudflare and rebuilt the site as a static Astro site on Cloudflare Pages. Kesatria Keyboard, the name I've used online since school (the story is on the [about page](/about)), now lives under kesatria.dev too.
+
+<!-- TODO(adwi): the old blog's database is backed up; worth saying whether the old blog posts will be migrated. -->
 
 ## Why Astro
 
