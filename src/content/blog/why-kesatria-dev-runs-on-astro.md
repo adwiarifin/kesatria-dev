@@ -1,6 +1,6 @@
 ---
 title: 'Why kesatria.dev exists, and why it runs on Astro'
-description: 'What this blog is for, why I rebuilt an old Laravel blog as a static Astro site, and the small decisions I made before writing a single post.'
+description: 'What this blog is for, why I moved it to a static Astro site on Cloudflare, and the small decisions I made before writing a single post.'
 pubDate: 2026-10-09T19:00:00+07:00
 heroImage: '../../assets/blog/why-kesatria-dev-runs-on-astro.jpg'
 draft: true
