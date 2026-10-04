@@ -16,7 +16,7 @@ Ritual bulanan (minggu terakhir, ±15 menit): proses Inbox, pilih 4 ide dari Bac
 ## Inbox
 
 - Kenapa redirect kesatriakeyboard.com sempat 522
-- Migrasi post blog lama (Laravel 5) ke Astro — backup DB sudah ada (di luar repo; berisi tabel `users`, jangan di-commit)
+- Post blog lama (Laravel 5) tidak dimigrasi apa adanya. Gali sebagai ide, tulis ulang dengan konteks sekarang. Backup DB ada di luar repo (berisi tabel `users`, jangan di-commit).
 
 ## Backlog
 
