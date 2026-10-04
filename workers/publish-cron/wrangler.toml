@@ -6,6 +6,8 @@
 name = "kesatria-publish-cron"
 main = "src/index.js"
 compatibility_date = "2026-10-01"
+# Cron-only Worker with no fetch handler, so a public workers.dev URL is useless.
+workers_dev = false
 
 [triggers]
 # Cron is UTC: 12:00 UTC = 19:00 WIB. Must not fire earlier than the publish
