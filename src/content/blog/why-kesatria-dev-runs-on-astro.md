@@ -2,10 +2,9 @@
 title: 'Why kesatria.dev exists, and why it runs on Astro'
 description: 'What this blog is for, why I rebuilt an old Laravel blog as a static Astro site, and the small decisions I made before writing a single post.'
 pubDate: 2026-10-09T19:00:00+07:00
+heroImage: '../../assets/blog/why-kesatria-dev-runs-on-astro.jpg'
 draft: true
 ---
-
-<!-- TODO(adwi): hero image (1200x630 crops well for social cards). -->
 
 This is the first post on kesatria.dev, so it's a good place to say what the site is for and how it's built.
 
