@@ -12,6 +12,8 @@ const { date } = Astro.props;
 			year: 'numeric',
 			month: 'short',
 			day: 'numeric',
+			// Builds run in UTC; pin to WIB so early-morning posts don't show the previous day.
+			timeZone: 'Asia/Jakarta',
 		})
 	}
 </time>
