@@ -44,7 +44,7 @@ So I moved both domains to Cloudflare and rebuilt the site as a static Astro sit
 
 ## Why Astro
 
-I wanted three things: content first, very little JavaScript sent to readers, and tooling I already live in.
+I wanted three things: content first, very little JavaScript sent to readers, and tooling that stays simple.
 
 **Content first.** Posts are Markdown files in the repo. Astro's content collections validate each post's frontmatter against a schema, so a typo in a date or a missing description fails the build instead of shipping:
 
@@ -62,12 +62,10 @@ schema: ({ image }) =>
 
 **Little JavaScript by default.** Astro renders pages to HTML at build time and only ships JavaScript for components that explicitly need it. A blog post doesn't need a client-side framework to display paragraphs, so this one ships none.
 
-**Familiar tooling.** It's TypeScript, components, and npm packages. I looked at two alternatives:
+**Simple tooling.** It's TypeScript, components, and Markdown. I looked at two alternatives:
 
 - **Next.js** is excellent for applications, but for a blog it brings a runtime and conventions I'd be working around rather than using.
-- **Hugo** is fast and mature, but its Go templates are one more language to keep in my head for a site I touch once a week.
-
-<!-- TODO(adwi): confirm these were the alternatives you actually weighed; swap in your real ones if not. -->
+- **Hugo** is the one I thought about longest. Go is my primary language at work, so Hugo would have been the natural pick. But I wanted this project to stay as simple as possible, and for a content site, Astro's components and Markdown are simpler to work with than Go's templating.
 
 The output is plain HTML, CSS, and images, served from Cloudflare Pages. No server, no database, nothing to patch.
 
