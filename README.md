@@ -7,16 +7,19 @@ Live at [kesatria.dev](https://kesatria.dev).
 ## Structure
 
 ```text
+├── docs/                    # ideas backlog, infra migration notes
 ├── public/                  # static assets served as-is (favicon)
 ├── src/
 │   ├── assets/              # images & fonts processed by Astro
 │   ├── components/          # BaseHead, Header, Footer, HeaderLink, FormattedDate
 │   ├── content/blog/        # blog posts (Markdown / MDX)
 │   ├── layouts/             # BlogPost.astro
+│   ├── lib/posts.ts         # getPublishedPosts(): drops drafts and future posts
 │   ├── pages/               # routes: /, /about, /blog, /blog/[slug], /rss.xml
 │   ├── styles/global.css
 │   ├── consts.ts            # SITE_TITLE, SITE_DESCRIPTION
 │   └── content.config.ts    # blog collection schema
+├── workers/publish-cron/    # Cloudflare Worker that rebuilds the site daily
 ├── astro.config.mjs
 └── package.json
 ```
@@ -31,15 +34,37 @@ Drop a `.md` or `.mdx` file into `src/content/blog/`. The filename becomes the U
 ---
 title: 'Post title'
 description: 'Shown in listings, meta tags, and the RSS feed.'
-pubDate: 'Jul 27 2026'
-updatedDate: 'Jul 28 2026'      # optional
+pubDate: 2026-10-09T19:00:00+07:00   # include the WIB offset
+updatedDate: 2026-10-10T09:00:00+07:00   # optional
 heroImage: '../../assets/your-image.jpg'   # optional
+draft: true                          # optional, defaults to false
 ---
 
 Post body here.
 ```
 
-Posts show up automatically on `/blog` and in `/rss.xml`, sorted newest first.
+Posts show up on `/blog`, in `/rss.xml`, and in the sitemap, sorted newest first.
+
+## Scheduled publishing
+
+Astro has no scheduled posts, so publishing happens at build time. A production build only includes a post when `draft` is false and its `pubDate` has passed (`src/lib/posts.ts`). The dev server shows everything, so drafts and scheduled posts can be previewed locally.
+
+To schedule a post, set a future `pubDate`, set `draft: false`, and push. It stays hidden until the first build after that time.
+
+That build comes from `workers/publish-cron`, a Cloudflare Worker that calls the Pages deploy hook every day at 19:00 WIB (`0 12 * * *` UTC). The schedule lives in each post's `pubDate`, so changing the publishing day needs no infra change. The cron must not fire before the publish time, or a post due at 19:00 misses that day's build.
+
+Set up or redeploy the Worker from `workers/publish-cron/`:
+
+```sh
+pnpm dlx wrangler@4 secret put DEPLOY_HOOK_URL   # Pages deploy hook for `main`
+pnpm dlx wrangler@4 deploy
+```
+
+To test the handler locally, put a dummy `DEPLOY_HOOK_URL` in `.dev.vars`, run `pnpm dlx wrangler@4 dev --test-scheduled`, and open `http://localhost:8787/__scheduled?cron=0+12+*+*+*`.
+
+This repo is public, so a pushed draft or scheduled post can be read on GitHub before it goes live. Keep anything that must stay hidden on a local branch until then.
+
+Post ideas and the monthly plan live in `docs/ideas.md`.
 
 ## Commands
 
