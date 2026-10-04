@@ -22,7 +22,13 @@ kesatria.dev is where I write that down. Expect four kinds of posts:
 
 A new post goes up every Friday at 7 PM Western Indonesia Time (WIB).
 
-<!-- TODO(adwi): one or two sentences in your own voice on why you're writing publicly now. -->
+## Why write in public
+
+Part of it is positioning. I want one place on the internet that shows how I think and work as an engineer.
+
+The bigger reason is simpler. What I've learned shouldn't disappear with me. Writing it down is the most durable way I know to pass it on.
+
+And yes, AI is everywhere now. It helped draft this post, too. But the ideas, the experiences, and the decisions come from a person. I don't believe AI will replace people. I think it will exist alongside us and leave us more time for the things that matter.
 
 ## Where it came from
 
