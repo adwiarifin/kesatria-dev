@@ -40,7 +40,7 @@ Post ditulis dalam bahasa Inggris. Draft ada di `src/content/blog/`.
   - Bahan: commit `d5ab7be`, `f061ce0`, `2295622`.
 - [ ] **2026-10-16** · JSON-LD untuk blog personal: Person, WebSite, BlogPosting · draft: `json-ld-for-a-personal-blog.md` · `seo`
   - Graph dengan `@id`; `sameAs` di-scope per entity; akun private sengaja dikeluarkan (SEO sebagai batas privasi).
-  - Escape `<` jadi `<` di `set:html`; OG image di `public/` agar URL stabil.
+  - Escape `<` jadi `\u003c` di `set:html`; OG image di `public/` agar URL stabil.
   - Bahan: `src/layouts/BaseLayout.astro`, `src/consts.ts`, commit `3ab5ed5`, `8b3c488`.
 - [ ] **2026-10-23** · Membawa bunyi "ding" lift ke rumah: Arduino, NFC, buzzer · draft: `elevator-ding-arduino-nfc-buzzer.md` · `iot`
   - Motivasi: anak suka bunyi "ding" lift di apartemen; setelah pindah ke rumah, liftnya hilang.
