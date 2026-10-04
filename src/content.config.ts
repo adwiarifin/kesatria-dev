@@ -13,6 +13,8 @@ const blog = defineCollection({
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
+			// Drafts are visible in dev but never built for production.
+			draft: z.boolean().default(false),
 			heroImage: z.optional(image()),
 			// Overrides `heroImage` for social cards when the in-page hero
 			// does not crop well at 1200x630.

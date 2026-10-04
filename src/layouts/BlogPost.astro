@@ -5,7 +5,8 @@ import FormattedDate from '../components/FormattedDate.astro';
 import { AUTHOR_NAME, SITE_URL } from '../consts';
 import BaseLayout from './BaseLayout.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+// The layout never reads `draft`; pages that aren't posts (e.g. /about) omit it.
+type Props = Omit<CollectionEntry<'blog'>['data'], 'draft'>;
 
 const { title, description, pubDate, updatedDate, heroImage, ogImage } = Astro.props;
 
