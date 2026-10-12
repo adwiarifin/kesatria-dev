@@ -2,10 +2,9 @@
 title: 'JSON-LD for a personal blog: Person, WebSite, and BlogPosting as one graph'
 description: 'How kesatria.dev describes itself to search engines with linked JSON-LD, and why some of my social accounts are deliberately left out.'
 pubDate: 2026-10-16T19:00:00+07:00
+heroImage: '../../assets/blog/json-ld-for-a-personal-blog.jpg'
 draft: true
 ---
-
-<!-- TODO(adwi): hero image. A simple diagram of the three nodes and their links would work. -->
 
 Search engines read your HTML, but they also read structured data: a block of JSON-LD that says, in a vocabulary they understand, "this page is a blog post, written by this person, on this website." For a personal site, that's how you tell search engines that the author of these posts is the same person as the GitHub, LinkedIn, and X accounts with the same name.
 
