@@ -18,7 +18,7 @@ The site describes three things:
 - **WebSite:** kesatria.dev itself.
 - **BlogPosting:** each individual post.
 
-There's also an **Organization** for Kesatria Keyboard, my keyboard brand, which I founded.
+There's also an **Organization** for Kesatria Keyboard, the name I've used online since school and the name of an old blog of mine, kesatriakeyboard.com.
 
 The simple approach is to repeat the full author details inside every post. That works, but it means the same person gets declared many times, with nothing saying it's the same person. Instead, the site-wide entities live once, in the base layout, and each one gets an `@id`:
 
@@ -78,9 +78,9 @@ The rule I follow: **each account goes on the entity it actually identifies.**
 
 - My personal GitHub, LinkedIn, and X go on the **Person**.
 - The site's own Instagram account goes on the **WebSite**.
-- Kesatria Keyboard's accounts go on the **Organization**.
+- The Kesatria Keyboard accounts go on the **Organization**.
 
-Putting everything on the Person is tempting, because more links feel like more signal. But it's wrong: it tells search engines that a brand account *is* me. Keeping them separate, with the Organization's `founder` pointing to the Person, describes the actual relationship.
+Putting everything on the Person is tempting, because more links feel like more signal. But it's wrong: it tells search engines that a website's accounts *are* me, when they identify the website. Keeping them separate, with the Organization's `founder` pointing to the Person, describes the actual relationship.
 
 In code, that's three separate lists in `src/consts.ts` rather than one:
 
@@ -103,7 +103,7 @@ My personal Instagram and Facebook aren't in any of these lists, and that's deli
 
 I actually added my personal Instagram to the Person at first. It's my account, with my name, so it seemed to belong there. Then I took it out. Those accounts are private and for friends and family. Adding them to `sameAs` tells search engines, in the most explicit way available, that my private life and my public engineering work are the same entity. That's the opposite of what I want.
 
-Google doesn't need to know which of my accounts has the dog photos.
+Google doesn't need to know which of my accounts has the cat photos.
 
 So structured data turned out to be a privacy decision as much as an SEO one. The question isn't only "what can I link?" but "what do I want linked?" There's now a comment in the code so I don't undo it later:
 
