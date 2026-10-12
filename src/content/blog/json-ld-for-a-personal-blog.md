@@ -128,6 +128,8 @@ The easiest check is the [Schema Markup Validator](https://validator.schema.org)
 
 I ran the published first post through it. The result was no errors, no warnings, and two detected items: the `Organization` and the `BlogPosting`.
 
+![Schema Markup Validator showing the pasted JSON-LD on the left and a result of 0 errors, 0 warnings, and 2 items (Organization and BlogPosting) on the right](../../assets/blog/json-ld-schema-validator.png)
+
 Structured data doesn't guarantee anything. Search engines treat it as a hint, not an instruction. But a clean, connected graph is the clearest hint you can give, and for a personal site that's mostly about one question: is this the same person?
 
 Next week: something with a buzzer.
