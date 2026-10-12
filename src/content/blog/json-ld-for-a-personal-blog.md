@@ -130,6 +130,10 @@ I ran the published first post through it. The result was no errors, no warnings
 
 ![Schema Markup Validator showing the pasted JSON-LD on the left and a result of 0 errors, 0 warnings, and 2 items (Organization and BlogPosting) on the right](../../assets/blog/json-ld-schema-validator.png)
 
+JSON-LD isn't the only metadata worth checking. The Open Graph tags decide what a shared link looks like, and a tool like [metatags.io](https://metatags.io) shows that before anyone else sees it. This is the published first post, as Google and X would show it:
+
+![Link preview from metatags.io for the published first post, showing the Google search result with title and description, and the X card with the hero image](../../assets/blog/json-ld-link-preview.png)
+
 Structured data doesn't guarantee anything. Search engines treat it as a hint, not an instruction. But a clean, connected graph is the clearest hint you can give, and for a personal site that's mostly about one question: is this the same person?
 
 Next week: something with a buzzer.
