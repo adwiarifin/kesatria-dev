@@ -103,7 +103,7 @@ My personal Instagram and Facebook aren't in any of these lists, and that's deli
 
 I actually added my personal Instagram to the Person at first. It's my account, with my name, so it seemed to belong there. Then I took it out. Those accounts are private and for friends and family. Adding them to `sameAs` tells search engines, in the most explicit way available, that my private life and my public engineering work are the same entity. That's the opposite of what I want.
 
-<!-- TODO(adwi): a line in your own words on why you keep this boundary. -->
+Google doesn't need to know which of my accounts has the dog photos.
 
 So structured data turned out to be a privacy decision as much as an SEO one. The question isn't only "what can I link?" but "what do I want linked?" There's now a comment in the code so I don't undo it later:
 
