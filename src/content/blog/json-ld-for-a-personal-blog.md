@@ -124,7 +124,9 @@ const json = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 
 ## Checking it
 
-<!-- TODO(adwi): run a post URL through https://validator.schema.org and Google's Rich Results Test once it's live; add a screenshot or the result here. -->
+The easiest check is the [Schema Markup Validator](https://validator.schema.org). It can't always fetch a URL, so I paste the page source into the code snippet tab instead. Both `<script>` tags go in together, the site-wide graph and the post's `BlogPosting`.
+
+I ran the published first post through it. The result was no errors, no warnings, and two detected items: the `Organization` and the `BlogPosting`.
 
 Structured data doesn't guarantee anything. Search engines treat it as a hint, not an instruction. But a clean, connected graph is the clearest hint you can give, and for a personal site that's mostly about one question: is this the same person?
 
